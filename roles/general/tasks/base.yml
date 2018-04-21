@@ -1,0 +1,4 @@
+- name: Create admin group
+  group:
+    name: "{{ base.admin_group }}"
+    state: present

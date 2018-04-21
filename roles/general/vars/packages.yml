@@ -1,0 +1,2 @@
+packages:
+    security_packages_log_dir: "/var/log/security-packages/"

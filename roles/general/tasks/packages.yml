@@ -20,3 +20,29 @@
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
     gpgcheck: True
   when: ansible_os_family == "RedHat" and config.enable_epel_repo == True
+
+- name: Create logging directory for security packages
+  file:
+    path: "{{ packages.security_packages_log_dir }}"
+    owner: root
+    group: "{{ base.admin_group }}"
+    mode: 770
+    state: directory
+
+- name: Security Package Log Rotation
+  template:
+    src: templates/logrotate/security_packages
+    dest: /etc/logrotate.d/
+    owner: root
+    group: "{{ base.admin_group }}"
+
+- name: Enable security package updates
+  cron:
+    name: Automate Security Packages
+    hour: 0
+    minute: 0
+    weekday: 1
+    job: yum -y --security update >> /var/log/security-packags/$(date -I)
+    state: present
+    user: root
+    cron_file: security-updates
