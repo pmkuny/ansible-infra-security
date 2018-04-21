@@ -1,3 +1,7 @@
+config:
+    sshd_config_file: True
+    sshd_service_restart: True
+
 sshd_config:
    PermitEmptyPasswords: 'no'
    Protocol: 2

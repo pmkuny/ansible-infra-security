@@ -3,6 +3,14 @@
       src: templates/sshd_config
       dest: /etc/ssh/sshd_config
       owner: root
+  when:  config.sshd_config_file == True 
+
+- name: Restart SSHD
+  service:
+      name: sshd
+      state: restarted
+  when: config.sshd_service_restart == True
+
 
 
 
