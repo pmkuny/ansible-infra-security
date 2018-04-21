@@ -2,3 +2,7 @@
 - import_tasks: sshd.yml
   tags:
       - ssh
+
+- import_tasks: packages.yml
+  tags:
+      - packages
