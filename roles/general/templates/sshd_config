@@ -1,0 +1,22 @@
+# This file is managed by Ansible
+# Do not edit directly
+PermitEmptyPasswords {{ sshd_config.PermitEmptyPasswords }}
+Protocol {{ sshd_config.Protocol }}
+PasswordAuthentication {{ sshd_config.PasswordAuthentication }}
+PermitUserEnvironment {{ sshd_config.PermitUserEnvironment }}
+HostbasedAuthentication {{ sshd_config.HostbasedAuthentication }}
+Ciphers {{ sshd_config.Ciphers }}
+Banner {{ sshd_config.Banner }}
+ClientAliveInterval {{ sshd_config.ClientAliveInterval }}
+RhostsRSAAuthentication {{ sshd_config.RhostsRSAAuthentication }}
+ClientAliveCountMax {{ sshd_config.ClientAliveCountMax }}
+IgnoreRhosts {{ sshd_config.IgnoreRhosts }}
+PrintLastLog {{ sshd_config.PrintLastLog }}
+PermitRootLogin {{ sshd_config.PermitRootLogin }}
+IgnoreUserKnownHosts {{ sshd_config.IgnoreUserKnownHosts }}
+MACs {{ sshd_config.MACs }}
+GSSAPIAuthentication {{ sshd_config.GSSAPIAuthentication }}
+KerberosAuthentication {{ sshd_config.KerberosAuthentication }}
+StrictModes {{ sshd_config.StrictModes }}
+UsePrivilegeSeparation {{ sshd_config.UsePrivilegeSeparation }}
+Compression {{ sshd_config.Compression }}

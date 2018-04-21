@@ -1,0 +1,21 @@
+sshd_config:
+   PermitEmptyPasswords: 'no'
+   Protocol: 2
+   PasswordAuthentication: 'no'
+   PermitUserEnvironment: 'no'
+   HostbasedAuthentication: 'no'
+   Ciphers: 'aes128-ctr,aes192-ctr,aes256-ctr'
+   Banner: '/etc/issue'
+   ClientAliveInterval: 600
+   RhostsRSAAuthentication: 'no'
+   ClientAliveCountMax: '0'
+   IgnoreRhosts: 'yes'
+   PrintLastLog: 'yes'
+   PermitRootLogin: 'yes'
+   IgnoreUserKnownHosts: 'yes'
+   MACs: 'hmac-sha2-256,hmac-sha2-512'
+   GSSAPIAuthentication: 'no'
+   KerberosAuthentication: 'no'
+   StrictModes: 'yes'
+   UsePrivilegeSeparation: 'yes'
+   Compression: 'delayed'

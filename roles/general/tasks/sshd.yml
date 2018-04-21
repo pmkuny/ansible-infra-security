@@ -1,0 +1,8 @@
+- name: SSHD File Configuration
+  template:
+      src: templates/sshd_config
+      dest: /etc/ssh/sshd_config
+      owner: root
+
+
+
