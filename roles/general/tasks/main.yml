@@ -11,3 +11,7 @@
 - import_tasks: packages.yml
   tags:
       - packages
+
+- import_tasks: selinux.yml
+  tags:
+      - selinux

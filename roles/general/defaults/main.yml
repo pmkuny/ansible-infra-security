@@ -3,6 +3,7 @@ config:
     sshd_service_restart: True
     enable_repo_gpgcheck: True
     enable_epel_repo: True
+    enable_selinux: False
 
 sshd_config:
    PermitEmptyPasswords: 'no'
