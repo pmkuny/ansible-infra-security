@@ -1,0 +1,41 @@
+- name: Enable SELinux
+  block:
+    - name: Install SELinux-dependent packages
+      package:
+          name: "{{ item }}"
+          state: installed
+      with_items: 
+        - selinux-policy
+        - selinux-policy-targeted
+        - policycoreutils-python
+
+    - name: Set Enforcing Mode
+      lineinfile:
+          path: /etc/selinux/config
+          regexp: '^SELINUX=' 
+          line: 'SELINUX=enforcing'
+
+    - name: Set Targeted Policy
+      lineinfile:
+          path: /etc/selinux/config
+          regexp: '^SELINUXTYPE='
+          line: 'SELINUXTYPE=targed'
+
+    - name: Set SELinux boot options
+      lineinfile:
+          path: /boot/grub/menu.lst
+          backup: yes
+          state: present
+          firstmatch: yes
+          regexp: '(kernel.+)(selinux=0)(.+)'
+          line: '\1 selinux=1 security=selinux \3'
+          backrefs: yes
+
+    - name: Create /.autorelabel
+      file:
+          path: '/.autorelabel'
+          state: touch
+  when: config.enable_selinux == True
+
+
+

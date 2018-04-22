@@ -3,3 +3,4 @@ config:
     sshd_service_restart: False
     enable_repo_gpgcheck: True
     enable_epel_repo: True
+    enable_selinux: False

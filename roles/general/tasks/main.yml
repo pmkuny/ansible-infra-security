@@ -2,6 +2,10 @@
 
 - include_vars: main.yml
 
+- import_tasks: selinux.yml
+  tags:
+      - selinux
+
 - include_vars: ssh.yml
 - import_tasks: sshd.yml
   tags:
