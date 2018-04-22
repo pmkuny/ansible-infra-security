@@ -14,11 +14,9 @@
   when: config.enable_repo_gpgcheck == True
 
 - name: Enable EPEL Repo
-  yum_repository:
-    name: epel
-    description: EPEL YUM repo
-    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
-    gpgcheck: True
+  package:
+    name: epel-release
+    state: installed
   when: ansible_os_family == "RedHat" and config.enable_epel_repo == True
 
 - name: Create logging directory for security packages
