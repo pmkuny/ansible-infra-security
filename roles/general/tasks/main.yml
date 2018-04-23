@@ -1,13 +1,8 @@
 - import_tasks: base.yml
 
-- include_vars: main.yml
-
-- include_vars: ssh.yml
 - import_tasks: sshd.yml
   tags:
       - ssh
-
-- include_vars: packages.yml
 - import_tasks: packages.yml
   tags:
       - packages

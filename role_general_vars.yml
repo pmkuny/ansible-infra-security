@@ -1,3 +1,13 @@
+# This file is used to pass overrides to the General role default
+# variables. 
+
+config:
+    sshd_config_file: True
+    sshd_service_restart: False
+    enable_repo_gpgcheck: True
+    enable_epel_repo: True
+    enable_selinux: False
+
 sshd_config:
    PermitEmptyPasswords: 'no'
    Protocol: 2
@@ -19,3 +29,12 @@ sshd_config:
    StrictModes: 'yes'
    UsePrivilegeSeparation: 'yes'
    Compression: 'delayed'
+
+packages:
+    automate_security_packages: True
+    security_packages_log_dir: "/var/log/security-packages/"
+    security_packages_log_rotate_count: 1
+    security_packages_log_rotate_interval: monthly
+    security_packages_log_rotate_extra_entries: |
+         missingok
+         compress 

@@ -1,8 +1,0 @@
-packages:
-    automate_security_packages: True
-    security_packages_log_dir: "/var/log/security-packages/"
-    security_packages_log_rotate_count: 1
-    security_packages_log_rotate_interval: monthly
-    security_packages_log_rotate_extra_entries: |
-        missingok
-        compress 
