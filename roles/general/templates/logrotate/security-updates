@@ -1,6 +1,4 @@
 {{ packages.security_packages_log_dir }} {
-    rotate {{ packages.security_packages_log_rotate_count }}
-    {{ packages.security_packages_log_rotate_interval }}
-    {{ packages.security_packages_log_rotate_extra_entries }}
+    {{ packages.security_packages_log_rotate_content }}
 }
 
