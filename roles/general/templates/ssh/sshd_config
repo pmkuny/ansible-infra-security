@@ -20,3 +20,4 @@ KerberosAuthentication {{ sshd_config.KerberosAuthentication }}
 StrictModes {{ sshd_config.StrictModes }}
 UsePrivilegeSeparation {{ sshd_config.UsePrivilegeSeparation }}
 Compression {{ sshd_config.Compression }}
+PubKeyAuthentication {{ sshd_config.PubKeyAuthentication }}

@@ -1,9 +1,9 @@
 config:
     sshd_config_file: True
-    sshd_service_restart: False
+    sshd_service_restart: True
     enable_repo_gpgcheck: True
     enable_epel_repo: True
-    enable_selinux: False
+    enable_selinux: True
 
 sshd_config:
    PermitEmptyPasswords: 'no'
@@ -26,12 +26,13 @@ sshd_config:
    StrictModes: 'yes'
    UsePrivilegeSeparation: 'yes'
    Compression: 'delayed'
+   PubKeyAuthentication: 'yes'
 
 packages:
     automate_security_packages: True
     security_packages_log_dir: "/var/log/security-packages/"
-    security_packages_log_rotate_count: 1
-    security_packages_log_rotate_interval: monthly
-    security_packages_log_rotate_extra_entries: |
+    security_packages_log_rotate_content: |
+         rotate 6
+         monthly
          missingok
          compress 
