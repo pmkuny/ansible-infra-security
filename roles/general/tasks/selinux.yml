@@ -19,7 +19,7 @@
       lineinfile:
           path: /etc/selinux/config
           regexp: '^SELINUXTYPE='
-          line: 'SELINUXTYPE=targed'
+          line: 'SELINUXTYPE=targeted'
 
     - name: Set SELinux boot options
       lineinfile:
