@@ -1,0 +1,4 @@
+aws:
+    backup_to_s3: True
+    s3_folder_root: None
+    s3_folder_backup: None

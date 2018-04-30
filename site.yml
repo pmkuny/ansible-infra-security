@@ -4,3 +4,9 @@
       - general
   tags:
       - general_role
+
+- hosts: aws
+  roles: 
+      - aws
+  tags:
+      - aws_role

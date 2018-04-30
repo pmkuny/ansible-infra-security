@@ -1,5 +1,6 @@
 # This file is managed by Ansible
 # Do not edit directly
+
 PermitEmptyPasswords {{ sshd_config.PermitEmptyPasswords }}
 Protocol {{ sshd_config.Protocol }}
 PasswordAuthentication {{ sshd_config.PasswordAuthentication }}

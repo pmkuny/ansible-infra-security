@@ -35,7 +35,7 @@
       file:
           path: '/.autorelabel'
           state: touch
-  when: config.enable_selinux == True
+  when: global_config.enable_selinux == True
 
 
 

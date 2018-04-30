@@ -11,13 +11,18 @@
         line: 'gpgcheck=1'
         state: present
       with_items: "{{ find_filepaths.files }}" 
-  when: config.enable_repo_gpgcheck == True
+  when: global_config.enable_repo_gpgcheck == True
 
 - name: Enable EPEL Repo
-  package:
-    name: epel-release
-    state: installed
-  when: ansible_os_family == "RedHat" and config.enable_epel_repo == True
+  block:
+    - package:
+        name: epel-release
+        state: installed
+  rescue:
+    - debug:
+        msg: "No package available, defaulting to Internet package from Fedora"
+    - command: '/usr/bin/rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
+  when: ansible_os_family == "RedHat" and global_config.enable_epel_repo == True
 
 - name: Create logging directory for security packages
   block:

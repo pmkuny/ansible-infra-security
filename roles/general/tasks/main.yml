@@ -3,6 +3,8 @@
 - import_tasks: sshd.yml
   tags:
       - ssh
+  when: global_config.sshd_config_file == True
+
 - import_tasks: packages.yml
   tags:
       - packages
@@ -10,3 +12,9 @@
 - import_tasks: selinux.yml
   tags:
       - selinux
+  when: global_config.enable_selinux == True
+
+- import_tasks: auditd.yml
+  tags:
+      - auditd
+  when: global_config.configure_auditd == True
