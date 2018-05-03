@@ -1,0 +1,20 @@
+- name: Verify AWSCLI Program Exists
+  block:
+   - package: 
+       name: python3-pip
+       state: latest
+   - pip:
+       name: awscli
+       executable: pip-3
+       state: latest
+  when: aws.verify_awscli == True
+
+
+- name: Configure S3 Backup Cron Job
+  cron:
+    name: s3-backup
+    special_time: weekly
+    user: "{{ aws.s3_backup_user }}"
+    job: "aws s3 cp {{ aws.s3_folder_backup }} {{ aws.s3_folder_root }}"
+    cron_file: aws_s3_backup
+    state: present

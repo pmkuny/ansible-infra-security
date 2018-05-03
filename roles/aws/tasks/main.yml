@@ -1,0 +1,5 @@
+- import_tasks: s3_backup.yml
+  tags:
+          - s3_backup
+  when: aws.backup_to_s3 == True
+  
