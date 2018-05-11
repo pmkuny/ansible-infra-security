@@ -45,6 +45,9 @@
 -w /boot/ -p wa -k etc-system
 -w /etc/hosts.allow -p wa -k etc-system
 -w /etc/hosts.deny -p wa -k etc-system
+-w /etc/ssh/ -p wa -k etc-system
+-w /etc/resolv.conf -p wa -k etc-system
+-w /etc/hosts -p wa -k etc-system
 
 # Critical Files - Auditing
 -w /etc/audit/ -p wa -k etc-audit
@@ -52,4 +55,4 @@
 ################
 # System Calls #
 ################
-
+-a always,task -F arch=b64 -F uid=0 -S kill -S unlink -S rmdir -k root-actions
