@@ -4,12 +4,20 @@
     state: started
     enabled: yes
 
-- name: Configure Auditd Rules
-  template: 
-    src: templates/audit/ansible.rules
-    dest: /etc/audit/ansible.rules
+- name: Configure Auditd Settings
+  template:
+    src: templates/audit/auditd.conf
+    dest: /etc/audit/auditd.conf
     owner: root
     group: root
-    mode: 0700
+    mode: 0600 
+
+- name: Configure Auditd Rules
+  template: 
+    src: templates/audit/nss.rules
+    dest: /etc/audit/nss.rules
+    owner: root
+    group: root
+    mode: 0600
 
  
