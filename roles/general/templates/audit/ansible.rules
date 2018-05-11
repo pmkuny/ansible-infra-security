@@ -1,0 +1,11 @@
+# This file is managed by Ansible
+# Do not edit directly
+
+# Base Guidelines
+-a exit,always -S unlink -S rmdir
+-a exit,always -S stime.*
+-a exit,always -S setrlimit.*
+-w /etc/group -p wa
+-w /etc/passwd -p wa
+-w /etc/shadow -p wa
+-w /etc/sudoers -p wa

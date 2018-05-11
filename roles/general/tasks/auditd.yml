@@ -3,3 +3,13 @@
     name: auditd
     state: started
     enabled: yes
+
+- name: Configure Auditd Rules
+  template: 
+    src: templates/audit/ansible.rules
+    dest: /etc/audit/ansible.rules
+    owner: root
+    group: root
+    mode: 0700
+
+ 
