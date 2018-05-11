@@ -1,6 +1,22 @@
 # This file is managed by Ansible
 # Do not edit directly
 
+# Deletes all current rules
+-D 
+
+###########
+# Control #
+###########
+
+# Immutable configuration, reboot is required to change audit rules
+-e 2
+
+# Panic if an error is encountered
+-f 2
+
+# Set flow control to 100 messages per second
+-r 100
+
 ##############
 # Filesystem #
 ##############
