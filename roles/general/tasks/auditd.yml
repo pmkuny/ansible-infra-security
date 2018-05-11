@@ -15,7 +15,7 @@
 - name: Configure Auditd Rules
   template: 
     src: templates/audit/nss.rules
-    dest: /etc/audit/nss.rules
+    dest: /etc/audit/rules.d/nss.rules
     owner: root
     group: root
     mode: 0600

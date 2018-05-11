@@ -1,11 +1,39 @@
 # This file is managed by Ansible
 # Do not edit directly
 
-# Base Guidelines
--a exit,always -S unlink -S rmdir
--a exit,always -S stime.*
--a exit,always -S setrlimit.*
--w /etc/group -p wa
--w /etc/passwd -p wa
--w /etc/shadow -p wa
--w /etc/sudoers -p wa
+##############
+# Filesystem #
+##############
+
+# Security and Accounts
+-w /etc/group -p wa -k passwd-files
+-w /etc/passwd -p wa -k passwd-files
+-w /etc/shadow -p rwa -k passwd-files
+-w /sbin/useradd -p x -k account-mod
+-w /sbin/userdel -p x -k account-mod
+
+# Sudoers and Privilege Escalation
+-w /etc/sudoers -p wa -k suoders
+-w /etc/sudoers.d/ -p wa -k suoders
+
+# Custom Jobs
+-w /etc/cron.d/ -p wa -k cron
+
+# Kernel Space
+-w /sbin/modprobe -p x -k kernel
+
+# Critical Files - System
+-w /etc/fstab -p wa -k etc-system
+-w /etc/selinux/ -p rwxa -k etc-system
+-w /etc/modprobe.d/ -p wa -k etc-system
+-w /boot/ -p wa -k etc-system
+-w /etc/hosts.allow -p wa -k etc-system
+-w /etc/hosts.deny -p wa -k etc-system
+
+# Critical Files - Auditing
+-w /etc/audit/ -p wa -k etc-audit
+
+################
+# System Calls #
+################
+
