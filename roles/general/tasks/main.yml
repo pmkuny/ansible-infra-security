@@ -18,3 +18,8 @@
   tags:
       - auditd
   when: global_config.configure_auditd == True
+
+- import_tasks: lvm.yml
+  tags:
+      - lvm
+  when: global_config.configure_lvm == True

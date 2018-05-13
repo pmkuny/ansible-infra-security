@@ -5,6 +5,7 @@ global_config:
     enable_epel_repo: True
     enable_selinux: True
     configure_auditd: True
+    configure_lvm: True
 
 sshd_config:
    PermitEmptyPasswords: 'no'
