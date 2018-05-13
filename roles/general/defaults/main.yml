@@ -38,3 +38,7 @@ packages:
          monthly
          missingok
          compress 
+
+lvm:
+  ec2_extra_disk: 'sdb'
+

@@ -3,15 +3,9 @@
     name: parted
     state: installed
 
-- name: LVM Disk
-  vars_prompt:
-    - name: "ec2-extra-disk"
-      prompt: "Enter name of extra disk"
-      default: "xvda"
-
 - name: Configure Disk
   parted:
-    device: "/dev/{{ ec2-extra-disk }}"
+    device: /dev/{{ lvm.ec2_extra_disk }}
     number: 1
 
 - name: Create System Volume Group
@@ -27,11 +21,10 @@
   when: global_config.configure_auditd == True
 
 - name: Create Auditd LV Filesystem
-    filesystem:
-      fstype: xfs
-      dev: /dev/mapper/vg.system/audit
+  filesystem:
+    fstype: xfs
+    dev: /dev/mapper/vg.system/audit
   when: global_config.configure_auditd == True
 
-- name: Adjust Mount Points
 
 

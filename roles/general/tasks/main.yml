@@ -22,4 +22,5 @@
 - import_tasks: lvm.yml
   tags:
       - lvm
+
   when: global_config.configure_lvm == True
