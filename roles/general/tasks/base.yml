@@ -2,3 +2,12 @@
   group:
     name: "{{ base.admin_group }}"
     state: present
+
+- name: Install issue file
+  template:
+   destination: /etc/issue
+   src: templates/issue
+   state: present
+   owner: root
+   group: support
+   mode: 0664
