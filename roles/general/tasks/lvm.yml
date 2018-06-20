@@ -26,5 +26,12 @@
     dev: /dev/mapper/vg.system/audit
   when: global_config.configure_auditd == True
 
+- name: Create Auditd Mount Points
+  mount:
+    path: /var/log/audit/
+    src: /dev/mapper/vg-system-audit
+    fstype: xfs
+    state: present
+    opts: auto,noexec,nosuid,nodev 
 
 
