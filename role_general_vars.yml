@@ -39,3 +39,6 @@ packages:
     security_packages_log_rotate_extra_entries: |
          missingok
          compress 
+
+lvm:
+    ec2.extra_disk: "xvdb"
