@@ -5,6 +5,12 @@ DISK_PRESENT=0
 function format_disks {
     for whole_disk in $(cat disks.txt); do 
         fdisk $whole_disk 
+        echo n 
+        echo p
+        echo 1
+        echo
+        echo
+        echo w
     done
 }
        
@@ -24,3 +30,6 @@ if [ ! $DISK_PRESENT == 1 ]; then
 fi
 
 if [ $DISK_PRESENT == 1]; then
+    format_disks
+fi
+
