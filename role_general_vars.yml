@@ -8,6 +8,7 @@ global_config:
     enable_epel_repo: True
     enable_selinux: False
     configure_auditd: True
+    plesk_server: False
 
 sshd_config:
    PermitEmptyPasswords: 'no'

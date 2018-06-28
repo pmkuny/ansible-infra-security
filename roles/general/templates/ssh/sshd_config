@@ -1,6 +1,12 @@
 # This file is managed by Ansible
 # Do not edit directly
 
+# Plesk exception - enable password SSH if 
+# global_config.plesk_server is set to true
+{% if global_config.plesk_server = True %}
+    {% set sshd_config.PasswordAuthentication = 'yes' %}
+{% endif %}
+
 PermitEmptyPasswords {{ sshd_config.PermitEmptyPasswords }}
 Protocol {{ sshd_config.Protocol }}
 PasswordAuthentication {{ sshd_config.PasswordAuthentication }}
