@@ -5,7 +5,6 @@ global_config:
     enable_epel_repo: True
     enable_selinux: True
     configure_auditd: True
-    configure_lvm: True
 
 sshd_config:
    PermitEmptyPasswords: 'no'
@@ -38,7 +37,4 @@ packages:
          monthly
          missingok
          compress 
-
-lvm:
-  ec2_extra_disk: 'sdb'
 

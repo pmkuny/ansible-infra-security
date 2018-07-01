@@ -40,5 +40,3 @@ packages:
          missingok
          compress 
 
-lvm:
-    ec2.extra_disk: "xvdb"
