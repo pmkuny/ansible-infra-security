@@ -25,4 +25,11 @@
     group: root
     mode: 0600
 
+- name: SELinux Configuration
+  sefcontext:
+    target: '/var/log/audit(/.*)?'
+    setype: auditd_log_t
+    state: present
+    reload: yes
+
  

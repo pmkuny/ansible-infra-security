@@ -21,7 +21,23 @@
           regexp: '^SELINUXTYPE='
           line: 'SELINUXTYPE=targeted'
 
-    - name: Set SELinux boot options
+    - name: Determine Grub Version
+      stat:
+        path: /etc/default/grub
+      register: default_grub
+
+    - name: Set SELinux boot options (Grub2)
+      lineinfile:
+         path: /etc/default/grub
+         backup: yes
+         state: present
+         firstmatch: yes
+         regexp: '(GRUB_CMDLINE_LINUX)(.+)(\")'
+         line: '\2 selinux=1 security=selinux enforcing=1\3'
+         backrefs: yes
+      when: default_grub.stat.exists == True
+    
+    - name: Set SELinux boot options (Legacy)
       lineinfile:
           path: /boot/grub/menu.lst
           backup: yes
@@ -30,12 +46,12 @@
           regexp: '(kernel.+)(selinux=0)(.+)'
           line: '\1 selinux=1 security=selinux enforcing=1 \3'
           backrefs: yes
+      when: default_grub.stat.exists == False
 
     - name: Create /.autorelabel
       file:
           path: '/.autorelabel'
           state: touch
   when: global_config.enable_selinux == True
-
 
 

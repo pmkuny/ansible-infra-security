@@ -1,2 +1,5 @@
+base:
+    admin_group: "support"
+
 aws:
     verify_awscli: True

@@ -1,6 +1,9 @@
 # This file is used to pass overrides to the General role default
 # variables. 
 
+base: 
+  admin_group: "support"
+
 global_config:
     sshd_config_file: True
     sshd_service_restart: False

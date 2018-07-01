@@ -3,8 +3,8 @@
 
 # Plesk exception - enable password SSH if 
 # global_config.plesk_server is set to true
-{% if global_config.plesk_server = True %}
-    {% set sshd_config.PasswordAuthentication = 'yes' %}
+{% if global_config.plesk_server == True %}
+    set sshd_config.PasswordAuthentication = 'yes'
 {% endif %}
 
 PermitEmptyPasswords {{ sshd_config.PermitEmptyPasswords }}
