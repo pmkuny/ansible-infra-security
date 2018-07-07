@@ -1,0 +1,6 @@
+- name: Install Cloudwatch Logging
+  package:
+    name: awslogs
+    state: installed
+
+

@@ -1,1 +1,7 @@
 - import_tasks: aws_base.yml
+
+- import_tasks: cloudwatch.yml
+  tags: 
+      - cloudwatch
+  when: aws.configure_cloudwatch == True 
+

@@ -3,3 +3,4 @@ base:
 
 aws:
     verify_awscli: True
+    configure_cloudwatch: True
