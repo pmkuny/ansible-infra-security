@@ -1,6 +1,0 @@
-# This file is used to pass overrides to the AWS role default
-# variables. 
-
-aws:
-    verify_awscli: True
-    configure_cloudwatch: True

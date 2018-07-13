@@ -25,7 +25,7 @@
     group: root
     mode: 0600
 
-- name: SELinux Configuration
+- name: Auditd File Context Rule (SELinux)
   sefcontext:
     target: '/var/log/audit(/.*)?'
     setype: auditd_log_t

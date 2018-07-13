@@ -1,12 +1,12 @@
-base:
-    admin_group: "support"
+base: 
+  admin_group: "support"
 
 global_config:
     sshd_config_file: True
-    sshd_service_restart: True
+    sshd_service_restart: False
     enable_repo_gpgcheck: True
     enable_epel_repo: True
-    enable_selinux: True
+    enable_selinux: False
     selinux_restart: False
     configure_auditd: True
     plesk_server: False
@@ -42,4 +42,3 @@ packages:
          monthly
          missingok
          compress 
-

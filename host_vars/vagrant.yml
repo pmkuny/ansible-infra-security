@@ -1,15 +1,19 @@
-# This file is used to pass overrides to the General role default
-# variables. 
+# Used to pass overrides for Vagrant testing
 
-base: 
-  admin_group: "support"
+base:
+    admin_group: "support"
+
+aws:
+    verify_awscli: True
+    configure_cloudwatch: True
 
 global_config:
     sshd_config_file: True
     sshd_service_restart: False
     enable_repo_gpgcheck: True
     enable_epel_repo: True
-    enable_selinux: False
+    enable_selinux: True
+    selinux_restart: False
     configure_auditd: True
     plesk_server: False
 
@@ -34,12 +38,13 @@ sshd_config:
    StrictModes: 'yes'
    UsePrivilegeSeparation: 'yes'
    Compression: 'delayed'
+   PubKeyAuthentication: 'yes'
 
 packages:
     automate_security_packages: True
     security_packages_log_dir: "/var/log/security-packages/"
-    security_packages_log_rotate_count: 1
-    security_packages_log_rotate_interval: monthly
-    security_packages_log_rotate_extra_entries: |
+    security_packages_log_rotate_content: |
+         rotate 6
+         monthly
          missingok
          compress 

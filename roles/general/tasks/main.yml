@@ -18,3 +18,10 @@
   tags:
       - auditd
   when: global_config.configure_auditd == True
+
+
+- name: SELinux-required Reboot
+  command: /sbin/shutdown -r +1
+  when: global_config.selinux_restart == True
+
+

@@ -8,5 +8,5 @@
    dest: /etc/issue
    src: templates/issue
    owner: root
-   group: support
+   group: "{{ base.admin_group }}"
    mode: 0664
