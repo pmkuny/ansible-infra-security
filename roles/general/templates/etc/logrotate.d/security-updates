@@ -1,0 +1,8 @@
+{{ global_config.ansible_managed_file }}
+
+{{ packages.security_packages_log_dir }} {
+    rotate 6
+    monthly
+    missingok
+    compress
+}

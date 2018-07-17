@@ -2,6 +2,7 @@ base:
     admin_group: "support"
 
 global_config:
+    ansible_managed_file: "# This file is managed by Ansible. Do not edit directly"
     sshd_config_file: True
     sshd_service_restart: True
     enable_repo_gpgcheck: True
@@ -10,6 +11,7 @@ global_config:
     selinux_restart: False
     configure_auditd: True
     plesk_server: False
+    configure_logging: True
 
 sshd_config:
    PermitEmptyPasswords: 'no'

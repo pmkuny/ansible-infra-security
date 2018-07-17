@@ -1,5 +1,10 @@
 - import_tasks: base.yml
 
+- import_tasks: logging.yml
+  tags:
+      - log
+  when: global_config.configure_logging == True
+  
 - import_tasks: sshd.yml
   tags:
       - ssh

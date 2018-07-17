@@ -34,7 +34,7 @@
       state: directory
 
   - template:
-      src: templates/logrotate/security-updates
+      src: templates/etc/logrotate.d/security-updates
       dest: /etc/logrotate.d/
       owner: root
       group: "{{ base.admin_group }}"

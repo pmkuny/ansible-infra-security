@@ -1,7 +1,0 @@
-# This file is managed by Ansible
-# Do not edit directly
-
-{{ packages.security_packages_log_dir }} {
-    {{ packages.security_packages_log_rotate_content }}
-}
-

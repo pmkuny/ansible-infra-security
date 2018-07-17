@@ -6,7 +6,7 @@
 - name: Install issue file
   template:
    dest: /etc/issue
-   src: templates/issue
+   src: templates/etc/issue
    owner: root
    group: "{{ base.admin_group }}"
    mode: 0664
