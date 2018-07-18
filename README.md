@@ -1,7 +1,8 @@
 
 | Variable Group  | Variable |  Default Value | Comment |
 | ------------- | ------------- | ------------| ------- |
-| base          |  admin_group  | 'Support' | Support group name (for support users on the system) |
+| base          | admin_group | 'Support' | Support group name (for support users on the system) |
+| global_config | ansible_managed_file | "# This file is managed by Ansible. Do not edit directly" | |
 | global_config | sshd_config_file  | True | Whether Ansible should modify the SSHD config file |
 | global_config | sshd_service_restart  | True | Whether Ansible should restart SSHD after making a config file change |
 | global_config | enable_repo_gpgcheck  | True | Whether Ansible shoudl force GPG Checks of repositories |
