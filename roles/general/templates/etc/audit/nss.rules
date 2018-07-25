@@ -1,5 +1,4 @@
-# This file is managed by Ansible
-# Do not edit directly
+{{ global_config.ansible_managed_file }}
 
 # Deletes all current rules
 -D 

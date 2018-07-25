@@ -1,5 +1,10 @@
 - import_tasks: base.yml
 
+- import_tasks: logging.yml
+  tags:
+      - log
+  when: global_config.configure_logging == True
+  
 - import_tasks: sshd.yml
   tags:
       - ssh
@@ -18,4 +23,8 @@
   tags:
       - auditd
   when: global_config.configure_auditd == True
+
+- name: SELinux-required Reboot
+  command: /sbin/shutdown -r +1
+  when: global_config.selinux_restart == True
 

@@ -1,0 +1,7 @@
+{{ global_config.ansible_managed_file }}
+
+/var/log/messages* {
+    rotate 12
+    monthly
+
+    

@@ -1,6 +1,6 @@
 - name: SSHD File Configuration
   template:
-      src: templates/ssh/sshd_config
+      src: templates/etc/ssh/sshd_config
       dest: /etc/ssh/sshd_config
       owner: root
   when:  global_config.sshd_config_file == True 

@@ -1,0 +1,10 @@
+- name: Install Pip
+  package:
+    name: pip
+    state: latest
+
+- name: Install/Verify AWS CLI tool
+  pip:
+     name: awscli
+     state: latest
+

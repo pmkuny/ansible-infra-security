@@ -4,6 +4,8 @@
       - general
   tags:
       - general_role
+  become: yes
+  become_user: root
 
 - hosts: aws
   roles: 

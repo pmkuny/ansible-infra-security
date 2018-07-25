@@ -1,0 +1,6 @@
+- name: Configure Logrotate Dropfiles
+  template: 
+    src: templates/etc/logrotate.d/nss-infra-security
+    dest: /etc/logrotate.d/nss-infra-security
+    owner: root
+     

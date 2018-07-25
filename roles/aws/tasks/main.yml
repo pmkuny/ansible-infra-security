@@ -1,5 +1,7 @@
-- import_tasks: s3_backup.yml
-  tags:
-          - s3_backup
-  when: aws.backup_to_s3 == True
-  
+- import_tasks: aws_base.yml
+
+- import_tasks: cloudwatch.yml
+  tags: 
+      - cloudwatch
+  when: aws.configure_cloudwatch == True 
+

@@ -1,10 +1,16 @@
+# Used to pass overrides for Vagrant testing
+
 base:
     admin_group: "support"
+
+aws:
+    verify_awscli: True
+    configure_cloudwatch: True
 
 global_config:
     ansible_managed_file: "# This file is managed by Ansible. Do not edit directly"
     sshd_config_file: True
-    sshd_service_restart: True
+    sshd_service_restart: False
     enable_repo_gpgcheck: True
     enable_epel_repo: True
     enable_selinux: True
