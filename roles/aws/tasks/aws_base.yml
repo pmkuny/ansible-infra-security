@@ -7,4 +7,5 @@
   pip:
      name: awscli
      state: latest
+  when: aws.verify_awscli == True
 

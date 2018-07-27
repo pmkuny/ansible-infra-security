@@ -9,5 +9,6 @@ Vagrant.configure("2") do |config|
   end
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "site.yml"
+    ansible.compatibility_mode = "2.0"
   end
 end
