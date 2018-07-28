@@ -1,3 +1,4 @@
 aws:
     verify_awscli: True
     configure_cloudwatch: True
+    disable_default_account: True

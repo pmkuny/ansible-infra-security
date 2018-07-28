@@ -9,3 +9,10 @@
      state: latest
   when: aws.verify_awscli == True
 
+- name: Disable default EC2 Account
+  user: 
+    name: ec2-user
+    password_lock: yes
+    shell: /sbin/nologin
+  when: aws.disable_default_account == True
+

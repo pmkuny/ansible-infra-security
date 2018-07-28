@@ -23,6 +23,10 @@
   tags:
       - auditd
   when: global_config.configure_auditd == True
+ 
+- import_tasks: system_misc.yml
+  tags:
+      - system_misc
 
 - name: SELinux-required Reboot
   command: /sbin/shutdown -r +1

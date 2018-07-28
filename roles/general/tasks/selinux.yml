@@ -1,5 +1,5 @@
-- name: Enable SELinux
-  block:
+# Enable SELinux
+- block:
     - name: Install SELinux-dependent packages
       package:
           name: "{{ item }}"

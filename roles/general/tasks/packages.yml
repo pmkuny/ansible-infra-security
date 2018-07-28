@@ -1,11 +1,11 @@
-- name: Enable GPG Checks of Repos
-  block:
+- block:
     - find:
         path: /etc/yum.repos.d/
         patterns: '*.repo'
         recurse: yes
       register: find_filepaths
-    - lineinfile:
+    - name: Enable GPG Checks of Repos
+      lineinfile:
         path: "{{ item.path }}"
         regexp: '^gpgcheck='
         line: 'gpgcheck=1'
@@ -13,9 +13,9 @@
       with_items: "{{ find_filepaths.files }}" 
   when: global_config.enable_repo_gpgcheck == True
 
-- name: Enable EPEL Repo
-  block:
-    - package:
+- block:
+    - name: Install EPEL Release
+      package:
         name: epel-release
         state: installed
   rescue:
@@ -24,22 +24,24 @@
     - command: '/usr/bin/rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
   when: ansible_os_family == "RedHat" and global_config.enable_epel_repo == True
 
-- name: Create logging directory for security packages
-  block:
-  - file:
+- block:
+  - name: Create Logging Directory for Security Packages
+    file:
       path: "{{ packages.security_packages_log_dir }}"
       owner: root
       group: "{{ base.admin_group }}"
       mode: 770
       state: directory
 
-  - template:
+  - name: Copy Logrotate Templates
+    template:
       src: templates/etc/logrotate.d/security-updates
       dest: /etc/logrotate.d/
       owner: root
       group: "{{ base.admin_group }}"
 
-  - cron:
+  - name: Add Security Update Cronjob
+    cron:
       name: Automate Security Packages
       hour: 0
       minute: 0

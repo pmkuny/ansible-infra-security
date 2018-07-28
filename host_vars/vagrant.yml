@@ -6,6 +6,7 @@ base:
 aws:
     verify_awscli: True
     configure_cloudwatch: True
+    disable_default_account: True
 
 global_config:
     ansible_managed_file: "# This file is managed by Ansible. Do not edit directly"
