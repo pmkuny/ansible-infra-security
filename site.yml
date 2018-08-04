@@ -2,6 +2,7 @@
 - hosts: all
   roles:
       - general
+      - scap
   tags:
       - general_role
   become: yes
@@ -10,5 +11,6 @@
 - hosts: aws
   roles: 
       - aws
+      - scap
   tags:
       - aws_role

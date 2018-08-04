@@ -24,12 +24,6 @@
       - auditd
   when: global_config.configure_auditd == True
  
-- import_tasks: scap/obsolete_services.yml
-  tags:
-      - scap
-      - scap_high
-      - scap_obsolete_services
-
 - name: SELinux-required Reboot
   command: /sbin/shutdown -r +1
   when: global_config.selinux_restart == True

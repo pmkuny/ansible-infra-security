@@ -1,0 +1,125 @@
+---
+- name: (Rlogin,Rsh,Rexec) Uninstall rsh Package
+  package:
+      name: rsh
+      state: absent
+
+- name: (Rlogin,Rsh,Rexec) Disable rlogin Service
+  block:
+    - find:
+        path: /etc/
+        pattern: 'rlogin.service'
+        recurse: yes
+      register: rlogin_service_file
+    - service:
+        name: rlogin
+        state: stopped
+        enabled: no
+      when: rlogin_service_file.files
+  tags:
+      - scap_serverity_high
+
+- name: (Rlogin,Rsh,Rexec) Disable rexec Service
+  block:
+    - find:
+        path: /etc/
+        pattern: 'rexec.service'
+        recurse: yes
+      register: rexec_service_file
+    - service:
+        name: rexec
+        state: stopped
+        enabled: no
+      when: rexec_service_file.files
+  tags:
+      - scap_serverity_high
+
+- name: (Rlogin,Rsh,Rexec) Disable rsh Service
+  block:
+    - find:
+        path: /etc/
+        pattern: 'rsh.service'
+        recurse: yes
+      register: rsh_service_file
+    - service:
+        name: rsh
+        state: stopped
+        enabled: no
+      when: rsh_service_file.files
+  tags:
+      - scap_serverity_high
+
+- name: (Rlogin,Rsh,Rexec) Remove Rsh Trust Files
+  block:
+      - find:
+          path: /home/
+          pattern: '.rhosts'
+          recurse: yes
+        register: rhosts_user
+      - file:
+          path: "{{ rhosts_user.files }}"
+          state: absent
+  tags:
+      - scap_serverity_high
+
+- name: (Rlogin,Rsh,Rexec) Remove Host-Based Authentication Files
+  block:
+    - find:
+        path: /
+        patterns: 'shosts.equiv'
+        recurse: yes
+      register: shosts_equiv
+    - name: (Rlogin,Rsh,Rexec) Remove Host-Based Authentication Files
+      file:
+        path: "{{ shosts_equiv.files }}"
+        state: absent
+
+- name: (Rlogin,Rsh,Rexec) Remove User Host-Based Authentication Files
+  block:
+    - find:
+        path: /home/
+        pattern: '.shosts'
+        recurse: yes
+        depth: 2
+      register: shosts_user
+    - name: (Rlogin,Rsh,Rexec) Remove User Host-Based Authentication Files
+      file:
+        path: "{{ shosts_user.files }}"
+        state: absent
+  
+- name: (Rlogin,Rsh,Rexec) Uninstall rsh-server Package
+  package:
+      name: rsh-server
+      state: absent
+  tags:
+      - scap_serverity_high
+
+- name: (Telnet) Uninstall telnet-server Package
+  package:
+      name: telnet-server
+      state: absent
+  tags:
+      - scap_serverity_high
+
+- name: (NIS) Uninstall ypserv Package
+  package:
+      name: ypserv
+      state: absent
+  tags:
+      - scap_serverity_high
+
+- name: (TFTP Server) Disable tftp Service
+  block:
+    - find:
+        path: /etc/
+        pattern: 'tffp*.service'
+        recurse: yes
+      register: tftp_server_service_file
+    - service:
+        name: tftp-server
+        state: stopped
+        enabled: no
+      when: tftp_server_service_file.files
+  tags:
+      - scap_serverity_medium
+
