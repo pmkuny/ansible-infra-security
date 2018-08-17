@@ -11,3 +11,11 @@
    group: "{{ base.admin_group }}"
    mode: 0664
 
+- name: Install cron.allow file
+  template:
+   dest: /etc/cron.allow
+   src: templates/etc/cron.allow
+   owner: root
+   mode: 0600
+
+
