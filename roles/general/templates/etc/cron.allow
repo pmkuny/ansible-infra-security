@@ -1,0 +1,5 @@
+{{ global_config.ansible_managed_file }}
+
+{% for user in base.admin_users %}
+{{ user }}
+{% endfor %}

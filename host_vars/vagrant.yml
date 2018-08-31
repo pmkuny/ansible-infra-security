@@ -2,6 +2,7 @@
 
 base:
     admin_group: "support"
+    admin_users: ['root']
 
 aws:
     verify_awscli: True
