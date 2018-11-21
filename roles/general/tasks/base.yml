@@ -18,3 +18,10 @@
     owner: root
     mode: 0600
 
+- name: Configure Sudoers
+  template:
+    dest: /etc/sudoers.d/99-nss
+    src: templates/etc/sudoers.d/99-nss
+    owner: root
+    group: root
+    mode: 0600
