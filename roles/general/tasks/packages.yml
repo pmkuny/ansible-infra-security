@@ -20,7 +20,7 @@
         state: installed
   rescue:
     - debug:
-        msg: "No package available, defaulting to Internet package from Fedora"
+        msg: "No package available, defaulting to EPEL package from Fedora"
     - command: '/usr/bin/rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
   when: ansible_os_family == "RedHat" and global_config.enable_epel_repo == True
 

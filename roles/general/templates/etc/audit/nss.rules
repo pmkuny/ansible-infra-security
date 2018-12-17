@@ -26,6 +26,9 @@
 -w /etc/shadow -p rwa -k passwd-files
 -w /sbin/useradd -p x -k account-mod
 -w /sbin/userdel -p x -k account-mod
+-w /sbin/groupadd -p x -k account-mod
+-w /sbin/groupdel -p x -k account-mod
+-w /sbin/groupmod -p x -k account-mod
 
 # Sudoers and Privilege Escalation
 -w /etc/sudoers -p wa -k suoders
