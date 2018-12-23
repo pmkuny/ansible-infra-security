@@ -18,4 +18,32 @@
    owner: root
    mode: 0600
 
+- name: Create support users
+  user:
+    name: "{{ item }}"
+    group: "{{ base.admin_group }}"
+    state: present
+    append: yes
+  with_items:
+    - "{{ base.admin_users }}"
 
+- name: Restrict Cron Usage
+  file:
+    path: /etc/cron.deny
+    state: absent
+
+- name: Install cron.allow file
+  template:
+    dest: /etc/cron.allow
+    src: templates/etc/cron.allow
+    owner: root
+    group: "{{ base.admin_group }}"
+    mode: 0660
+
+- name: Configure Sudoers
+  template:
+    dest: /etc/sudoers.d/99-nss
+    src: templates/etc/sudoers.d/99-nss
+    owner: root
+    group: root
+    mode: 0600

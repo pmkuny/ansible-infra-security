@@ -1,7 +1,8 @@
 
 | Variable Group  | Variable |  Default Value | Comment |
 | ------------- | ------------- | ------------| ------- |
-| base          | admin_group | 'Support' | Support group name (for support users on the system) |
+| base          | admin_group | 'support' | Support group name (for support users on the system) |
+| base          | admin_users | ['root'] | Users that should be created and added to support group |
 | global_config | ansible_managed_file | "# This file is managed by Ansible. Do not edit directly" | |
 | global_config | sshd_config_file  | True | Whether Ansible should modify the SSHD config file |
 | global_config | sshd_service_restart  | True | Whether Ansible should restart SSHD after making a config file change |
@@ -17,7 +18,7 @@
 | sshd_config | PasswordAuthentication  | 'no' | |
 | sshd_config | PermitUserEnvironment  | 'no' | |
 | sshd_config | HostbasedAuthentication  | 'no' | |
-| sshd_config | Cipehers  | 'aes128-ctr,aes192-ctr,aes256-ctr' | |
+| sshd_config | Ciphers  | 'aes128-ctr,aes192-ctr,aes256-ctr' | |
 | sshd_config | Banner  | '/etc/issue' | |
 | sshd_config | ClientAliveInterval  | 600 | |
 | sshd_config | IgnoreRhosts  | 'yes' | |

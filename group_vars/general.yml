@@ -1,5 +1,6 @@
 base: 
-  admin_group: "support"
+    admin_group: "support"
+    admin_users: ['root']
 
 global_config:
     ansible_managed_file: "# This file is managed by Ansible. Do not edit directly"
